@@ -1,15 +1,23 @@
+import "./globals.css"
+
 import { Geist, Geist_Mono } from "next/font/google"
 
-import "./globals.css"
+import AppSidebar from "@/components/AppSidebar"
+import Navbar from "@/components/Navbar"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
+const geistMono = Geist_Mono({
   variable: "--font-mono",
+  subsets: ["latin"],
 })
+
+export const metadata = {
+  title: "Dashboard",
+  description: "Dashboard with ShadCN Components and Next.js 16",
+}
 
 export default function RootLayout({
   children,
@@ -20,10 +28,21 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={cn(
+        "antialiased",
+        geistMono.variable,
+        "font-sans",
+        geistSans.variable
+      )}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="flex">
+        <ThemeProvider>
+          <AppSidebar />
+          <main className="w-full">
+            <Navbar />
+            <div className="px-4">{children}</div>
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   )
