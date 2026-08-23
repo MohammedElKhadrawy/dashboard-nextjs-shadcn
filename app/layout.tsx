@@ -28,12 +28,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(
-        "antialiased",
-        geistMono.variable,
-        "font-sans",
-        geistSans.variable
-      )}
+      className={cn("antialiased", geistMono.variable, geistSans.variable)}
     >
       <body className="flex">
         <ThemeProvider>
