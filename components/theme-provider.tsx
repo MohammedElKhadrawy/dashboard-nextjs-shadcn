@@ -46,7 +46,13 @@ function ThemeHotkey() {
         return
       }
 
-      if (event.key.toLowerCase() !== "d") {
+      // This is English-oriented only
+      // if (event.key.toLowerCase() !== "d") {
+      //   return
+      // }
+
+      // This makes it language-agnostic
+      if (event.code !== "KeyD") {
         return
       }
 
