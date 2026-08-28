@@ -1,10 +1,13 @@
 import "./globals.css"
 
 import { Geist, Geist_Mono } from "next/font/google"
+import { cookies } from "next/headers"
 
 import AppSidebar from "@/components/AppSidebar"
 import Navbar from "@/components/Navbar"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SidebarProvider } from "@/components/ui/sidebar"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-sans" })
@@ -19,11 +22,14 @@ export const metadata = {
   description: "Dashboard with ShadCN Components and Next.js 16",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const cookieStore = await cookies()
+  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true"
+
   return (
     <html
       lang="en"
@@ -32,11 +38,15 @@ export default function RootLayout({
     >
       <body className="flex">
         <ThemeProvider>
-          <AppSidebar />
-          <main className="w-full">
-            <Navbar />
-            <div className="px-4">{children}</div>
-          </main>
+          <SidebarProvider defaultOpen={defaultOpen}>
+            <TooltipProvider>
+              <AppSidebar />
+              <main className="w-full">
+                <Navbar />
+                <div className="px-4">{children}</div>
+              </main>
+            </TooltipProvider>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>
