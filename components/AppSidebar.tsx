@@ -197,7 +197,7 @@ const AppSidebar = () => {
                   </SidebarMenuButton>
 
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuAction>
+                    <SidebarMenuAction className="hover:bg-transparent">
                       <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
                       <span className="sr-only">Toggle submenu</span>
                     </SidebarMenuAction>
