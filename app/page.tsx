@@ -11,7 +11,7 @@ const HomePage = () => {
         <AppBarChart />
       </div>
       <div className="rounded-lg bg-primary-foreground p-4">
-        <CardList title="Latest Transactions" />
+        <CardList title="Recent Transactions" />
       </div>
       <div className="rounded-lg bg-primary-foreground p-4">
         <AppPieChart />

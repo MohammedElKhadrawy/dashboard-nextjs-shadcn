@@ -46,7 +46,7 @@ const popularContent = [
   },
 ]
 
-const latestTransactions = [
+const recentTransactions = [
   {
     id: 1,
     title: "Subscription Renewal",
@@ -92,9 +92,9 @@ const latestTransactions = [
 const CardList = ({
   title,
 }: {
-  title: "Popular Content" | "Latest Transactions"
+  title: "Popular Content" | "Recent Transactions"
 }) => {
-  const list = title === "Popular Content" ? popularContent : latestTransactions
+  const list = title === "Popular Content" ? popularContent : recentTransactions
 
   return (
     <div>
