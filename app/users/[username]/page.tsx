@@ -1,6 +1,7 @@
 import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react"
 
 import CardList from "@/components/CardList"
+import EditUser from "@/components/EditUser"
 import { Badge } from "@/components/ui/badge"
 import {
   Breadcrumb,
@@ -10,12 +11,14 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { Button } from "@/components/ui/button"
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { Progress } from "@/components/ui/progress"
+import { Sheet, SheetTrigger } from "@/components/ui/sheet"
 
 const SingleUserPage = () => {
   return (
@@ -98,7 +101,17 @@ const SingleUserPage = () => {
 
           {/* INFORMATION CONTAINER */}
           <div className="rounded-lg bg-primary-foreground p-4">
-            <h2 className="text-xl font-semibold">User Information</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold">User Information</h2>
+
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button>Edit User</Button>
+                </SheetTrigger>
+
+                <EditUser />
+              </Sheet>
+            </div>
 
             <div className="mt-4 space-y-4">
               <div className="mb-8 flex flex-col gap-2">
