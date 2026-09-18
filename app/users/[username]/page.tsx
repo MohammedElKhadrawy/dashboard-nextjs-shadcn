@@ -2,6 +2,7 @@ import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react"
 
 import CardList from "@/components/CardList"
 import EditUser from "@/components/EditUser"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import {
   Breadcrumb,
@@ -157,7 +158,23 @@ const SingleUserPage = () => {
         {/* RIGHT */}
         <section className="w-full space-y-6 xl:w-2/3">
           {/* USER CARD CONTAINER */}
-          <div className="rounded-lg bg-primary-foreground p-4">User Card</div>
+          <div className="space-y-2 rounded-lg bg-primary-foreground p-4">
+            <div className="flex items-center gap-4">
+              <Avatar className="size-12">
+                <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+
+              <h1 className="text-xl font-semibold">John Doe</h1>
+            </div>
+
+            <p className="text-sm text-muted-foreground">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
+              explicabo, vel aliquid praesentium similique ipsum error minima
+              tempore quo blanditiis ducimus veritatis magni consequuntur
+              nostrum ad. Ab consequuntur dicta dolore!
+            </p>
+          </div>
 
           {/* CHART CONTAINER */}
           <div className="rounded-lg bg-primary-foreground p-4">Chart</div>
