@@ -1,5 +1,6 @@
 import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react"
 
+import AppLineChart from "@/components/AppLineChart"
 import CardList from "@/components/CardList"
 import EditUser from "@/components/EditUser"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -177,7 +178,10 @@ const SingleUserPage = () => {
           </div>
 
           {/* CHART CONTAINER */}
-          <div className="rounded-lg bg-primary-foreground p-4">Chart</div>
+          <div className="rounded-lg bg-primary-foreground p-4">
+            <h1 className="mb-6 text-xl font-semibold">User Activity</h1>
+            <AppLineChart />
+          </div>
         </section>
       </div>
     </div>
